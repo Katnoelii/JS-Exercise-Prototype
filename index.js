@@ -99,6 +99,7 @@ function Baby(name,age,favoriteToy) {
   this.favoriteToy = favoriteToy;
 }
 Baby.prototype = Object.create(Person.prototype);
+
 Baby.prototype.play = function(){
   return `Playing with ${this.favoriteToy}`;
 }
@@ -108,10 +109,10 @@ const babyOne = new Baby('Helen','1','Stuffed Lion');
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Principle 1 - Window/Global Object Binding (What "this" will be within the global scope)
+  2. Principle 2 - Implicit Binding (preceeds a dot before a function)
+  3. Principle 3 - New Binding (the specific time when an object is created and returned by the constructor function)
+  4. Principle 4 - Explicit Binding (When the call or apply method is used, "this" is defined explicitly)
 */
 
 
