@@ -58,7 +58,12 @@ Person.prototype.toString = function(){
 const personOne = new Person('Kate', 22);
 
 console.log(personOne.toString)
-
+personOne.eat('chicken');
+personOne.eat('steak');
+personOne.eat('pork');
+console.log(personOne.stomach);
+personOne.poop();
+console.log(personOne.stomach);
 /*
   TASK 2
     - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
@@ -73,9 +78,16 @@ console.log(personOne.toString)
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model,milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
 }
+Car.prototype.fill = function(gallons){
+  this.tank = this.tank + gallons;
+  }
+
 
 /*
   TASK 3
@@ -84,9 +96,15 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(name,age,favoriteToy) {
+  this.name = name;
+  this.age = age;
+  this.favoriteToy = favoriteToy;
 }
+Baby.prototype.play = function(){
+  return `Playing with ${this.favoriteToy}`;
+}
+const babyOne = new Baby('Helen','1','Stuffed Lion');
 
 /* 
   TASK 4
