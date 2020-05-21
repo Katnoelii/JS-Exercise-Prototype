@@ -59,8 +59,6 @@ const personOne = new Person('Kate', 22);
 
 console.log(personOne.toString)
 personOne.eat('chicken');
-personOne.eat('steak');
-personOne.eat('pork');
 console.log(personOne.stomach);
 personOne.poop();
 console.log(personOne.stomach);
@@ -97,10 +95,10 @@ Car.prototype.fill = function(gallons){
         + Should return a string "Playing with x", x being the favorite toy.
 */
 function Baby(name,age,favoriteToy) {
-  this.name = name;
-  this.age = age;
+  Person.call(this,name,age);
   this.favoriteToy = favoriteToy;
 }
+Baby.prototype = Object.create(Person.prototype);
 Baby.prototype.play = function(){
   return `Playing with ${this.favoriteToy}`;
 }
